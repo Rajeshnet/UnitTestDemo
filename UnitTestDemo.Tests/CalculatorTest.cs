@@ -11,7 +11,7 @@ namespace UnitTestDemo.Tests
         {
             Calculator Calculator = new Calculator();
             int Sum = Calculator.Sum(10, 33);
-            Assert.AreEqual(43, Sum);
+            Assert.AreEqual(4, Sum);
         }
     }
 }
