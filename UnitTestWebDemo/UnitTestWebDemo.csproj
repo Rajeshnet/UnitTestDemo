@@ -5,14 +5,24 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
 
 
- 
+
+  <Target Name="Publish">
+    <Message Text="Configuration: $(Configuration)" />
+    <!-- Platform=Any Cpu for Solution Files, Platform=AnyCpu for project files-->
+    <MSBuild Projects="$(Projects)" Properties="Platform=AnyCPU;
+                                                Configuration=$(Configuration);
+                                                AutoParameterizationWebConfigConnectionStrings=False;
+                                                DeployOnBuild=True;
+                                                DeployTarget=Package;
+                                                PackageLocation=_package;
+                                                PackageAsSingleFile=False;" />
+  </Target>
      
-     
-    <Target Name="Build" DependsOnTargets="BeforeBuild">
+    <!--<Target Name="Build" DependsOnTargets="BeforeBuild">
       <MSBuild Projects="UnitTestDemo.sln"
                Targets="Rebuild"
                Properties="Configuration=Debug;OutDir=$(PackageFolder)\;"></MSBuild>
-    </Target>
+    </Target>-->
    
   
   
