@@ -12,5 +12,10 @@ namespace UnitTestDemo
         {
             return FirstVal + secondVal;
         }
+
+        public int Diff(int FirstVal, int secondVal)
+        {
+            return FirstVal - secondVal;
+        }
     }
 }
