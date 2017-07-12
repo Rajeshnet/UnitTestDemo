@@ -8,6 +8,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>
     </ProductVersion>
+    
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <DeployOnBuild>true</DeployOnBuild>
+    <DeployTarget>Package</DeployTarget>
+    <PackageAsSingleFile>true</PackageAsSingleFile>
+    
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1EDBB5D7-417E-4E3A-AC71-C3DE8CE3DD40}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
