@@ -3,40 +3,12 @@
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-
-
-
-  <Target Name="Publish">
-    <Message Text="Configuration: $(Configuration)" />
-    <!-- Platform=Any Cpu for Solution Files, Platform=AnyCpu for project files-->
-    <MSBuild Projects="$(Projects)" Properties="Platform=AnyCPU;
-                                                Configuration=$(Configuration);
-                                                AutoParameterizationWebConfigConnectionStrings=False;
-                                                DeployOnBuild=True;
-                                                DeployTarget=Package;
-                                                PackageLocation=_package;
-                                                PackageAsSingleFile=False;" />
-  </Target>
-     
-    <!--<Target Name="Build" DependsOnTargets="BeforeBuild">
-      <MSBuild Projects="UnitTestDemo.sln"
-               Targets="Rebuild"
-               Properties="Configuration=Debug;OutDir=$(PackageFolder)\;"></MSBuild>
-    </Target>-->
-   
-  
-  
+ 
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>
-    </ProductVersion>
-    
-    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
-    <DeployOnBuild>true</DeployOnBuild>
-    <DeployTarget>Package</DeployTarget>
-    <PackageAsSingleFile>true</PackageAsSingleFile>
-    
+    </ProductVersion> 
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{1EDBB5D7-417E-4E3A-AC71-C3DE8CE3DD40}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -176,6 +148,9 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+  <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+</Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
