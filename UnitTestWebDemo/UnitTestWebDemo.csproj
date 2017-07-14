@@ -7,6 +7,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <DeployOnBuild>true</DeployOnBuild>
+    <DeployTarget>Package</DeployTarget>
+    <PackageAsSingleFile>true</PackageAsSingleFile>
+    
     <ProductVersion>
     </ProductVersion> 
     <SchemaVersion>2.0</SchemaVersion>
