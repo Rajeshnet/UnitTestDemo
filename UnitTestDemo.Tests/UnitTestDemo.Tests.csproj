@@ -59,6 +59,20 @@
       <Name>UnitTestDemo</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\UnitTestDemo.Tests.dll" />
+    <Content Include="bin\Debug\UnitTestDemo.Tests.pdb" />
+    <Content Include="bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll" />
+    <Content Include="bin\Release\UnitTestDemo.dll" />
+    <Content Include="bin\Release\UnitTestDemo.pdb" />
+    <Content Include="bin\Release\UnitTestDemo.Tests.dll" />
+    <Content Include="bin\Release\UnitTestDemo.Tests.pdb" />
+    <Content Include="bin\Release\xunit.dll" />
+    <Content Include="UnitTestDemo.Tests.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Release\nunit_random_seed.tmp" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
